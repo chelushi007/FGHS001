@@ -1,0 +1,50 @@
+{
+  "seed": 20261122,
+  "data_version": "P1-sim-v1-seed-20261122-normal",
+  "feature_version": "daily-lag-calendar-v1",
+  "features": [
+    "day_of_year",
+    "day_of_week",
+    "month",
+    "trend",
+    "lag_1",
+    "lag_7",
+    "lag_14",
+    "lag_30",
+    "mean_7",
+    "mean_30"
+  ],
+  "split": {
+    "train": 0.65,
+    "validation": 0.15,
+    "test": 0.2,
+    "ordered_by": "target_date",
+    "validation_used_for": "algorithm selection including persistence and moving-average baselines",
+    "test_used_for": "final evaluation only"
+  },
+  "horizons_days": [
+    7,
+    15,
+    30
+  ],
+  "random_state": 20261122,
+  "synthetic_demand_supply_targets": true,
+  "target_process": {
+    "price": "P1\u65e5\u6a21\u62df\u884c\u60c5\u533a\u57df/\u54c1\u7c7b\u65e5\u5747\u503c",
+    "demand": "P1\u91c7\u8d2d\u9700\u6c42\u9759\u6001\u603b\u91cf\u6309\u5e74/\u5468\u5b63\u8282\u9879\u53ca\u56fa\u5b9a\u8d8b\u52bf\u6784\u9020\u7684\u65e5\u6a21\u62df\u76ee\u6807",
+    "supply": "P1\u9500\u552e\u6302\u724c\u9759\u6001\u603b\u91cf\u6309\u5e74/\u5468\u5b63\u8282\u9879\u53ca\u56fa\u5b9a\u8d8b\u52bf\u6784\u9020\u7684\u65e5\u6a21\u62df\u76ee\u6807"
+  },
+  "algorithms_available": [
+    "xgboost"
+  ],
+  "algorithms_unavailable": {
+    "lightgbm": "disabled_by_configuration"
+  },
+  "model_version": "steelchain-tabular-forecast-v1.0.0",
+  "library_versions": {
+    "xgboost": "3.4.1",
+    "lightgbm": "4.7.0",
+    "scikit_learn": "1.9.1",
+    "pandas": "3.1.1"
+  }
+}

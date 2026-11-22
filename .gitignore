@@ -1,0 +1,29 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+tmp*/
+
+# Node / Next.js
+node_modules/
+apps/web/node_modules/
+apps/web/.next/
+apps/web/out/
+apps/web/.npm-cache/
+*.tsbuildinfo
+
+# Local data and secrets
+.env
+.env.*
+!.env.example
+!.env.local.example
+*.sqlite3
+*.sqlite
+*.db
+
+# OS/editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/

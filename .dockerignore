@@ -1,0 +1,9 @@
+.git
+**/node_modules
+**/.next
+**/.npm-cache
+data/*.sqlite
+data/*.sqlite3
+data/*.db
+tmp*
+**/__pycache__

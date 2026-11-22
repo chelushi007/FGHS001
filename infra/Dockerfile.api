@@ -1,0 +1,21 @@
+FROM python:3.12-slim
+
+ENV PYTHONDONTWRITEBYTECODE=1 \
+    PYTHONUNBUFFERED=1 \
+    STEELCHAIN_DB=/app/data/steelchain.sqlite
+WORKDIR /app
+
+RUN apt-get update && apt-get install -y --no-install-recommends libgomp1 \
+    && rm -rf /var/lib/apt/lists/*
+COPY requirements-agents.txt requirements-ml.txt requirements-optimization.txt ./
+RUN pip install --no-cache-dir -r requirements-agents.txt -r requirements-ml.txt -r requirements-optimization.txt
+
+COPY steelchain ./steelchain
+COPY migrations ./migrations
+COPY artifacts ./artifacts
+COPY reports ./reports
+COPY infra/start_api.sh ./start_api.sh
+RUN chmod +x ./start_api.sh && mkdir -p /app/data
+
+EXPOSE 8000
+ENTRYPOINT ["/app/start_api.sh"]
