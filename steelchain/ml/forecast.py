@@ -161,5 +161,3 @@ def predict(target,horizon,as_of=None):
     if target in ('demand','supply'):
         risk.append('需求/供应训练目标由静态挂牌总量按显式季节与趋势公式生成，不是历史真实业务量。')
     return {'target':target,'horizon_days':horizon,'as_of':str(hist.date.iloc[-1].date()),'target_date':str((hist.date.iloc[-1]+pd.Timedelta(days=horizon)).date()),'predicted_value':value,'data_origin':'SIMULATED_MODEL_PREDICTION','model':entry['algorithm'],'model_version':entry['model_version'],'artifact_sha256':entry['artifact_sha256'],'feature_version':entry['feature_version'],'features':entry['features'],'training_window':{'start':entry['train_start'],'end':entry['train_end']},'data_version':DATA_VERSION,'training_source_sha256':entry['training_source_sha256'],'inference_source_sha256':current_source,'calculation_basis':basis,'risk_warnings':risk}
-
-\n

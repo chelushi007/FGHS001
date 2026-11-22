@@ -68,5 +68,3 @@ def assistant_turn(req:TurnRequest):
  try: return invoke(req.message,req.conversation_id,req.role).model_dump()
  except ValueError as e: raise HTTPException(status_code=422,detail=str(e))
  except Exception as e: raise HTTPException(status_code=500,detail={'code':'AGENT_RUNTIME_ERROR','message':type(e).__name__})
-
-\n

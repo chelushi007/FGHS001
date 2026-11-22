@@ -16,6 +16,11 @@ class WorkbenchSourceTests(unittest.TestCase):
   charts=(ROOT/'apps/web/components/Charts.tsx').read_text(encoding='utf-8-sig')
   self.assertIn('/api/v1/dashboard/price-series',charts); self.assertIn('/api/v1/dashboard/supply-demand',charts)
   self.assertIn('model_unavailable',charts)
+ def test_model_status_is_driven_by_prediction_api(self):
+  page=(ROOT/'apps/web/app/page.tsx').read_text(encoding='utf-8-sig')
+  self.assertIn('/api/v1/dashboard/supply-demand-forecasts',page)
+  self.assertIn('setModelStatus',page)
+  self.assertIn('state={modelStatus===',page)
  def test_responsive_navigation_has_mobile_drawer_and_breakpoints(self):
   page=(ROOT/'apps/web/app/page.tsx').read_text(encoding='utf-8-sig')
   css=(ROOT/'apps/web/app/globals.css').read_text(encoding='utf-8-sig')
@@ -27,5 +32,3 @@ class WorkbenchSourceTests(unittest.TestCase):
   for marker in ('forecasts.forEach','predicted_value','model_version','SIMULATED_MODEL_PREDICTION','forecast_status','SupplyForecastChart','supply-demand-forecasts'):
    self.assertIn(marker,charts)
 if __name__=='__main__': unittest.main()
-
-\n
