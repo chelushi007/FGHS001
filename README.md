@@ -42,7 +42,7 @@ npm run dev
 
 ### 单文件 HTML 智能体
 
-可双击打开 `artifacts/steelchain-agent.html` 使用本地智能体界面。首次启动需安装 Python 依赖，之后运行仓库根目录的 `start-agent-demo.ps1`。HTML 是单文件界面，Agent 计算仍由 FastAPI 后端提供。分享和部署边界见 [本地 HTML 演示说明](docs/local-html-demo.md)。
+双击仓库根目录的 `钢链智脑服务开关.bat` 启动服务并打开本地 HTML；首次运行会检查并安装依赖，再双击可停止该开关启动的服务。HTML 是单文件界面，Agent 计算仍由 FastAPI 后端提供。分享和部署边界见 [本地 HTML 演示说明](docs/local-html-demo.md)。
 
 ## 比赛演示（P7）
 

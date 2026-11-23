@@ -4,13 +4,15 @@
 
 ## 本机启动
 
-首次使用先安装 Python 依赖：
+推荐双击仓库根目录的 `钢链智脑服务开关.bat`。首次运行会从项目目录检查并安装 Python 依赖，启动本地 API，然后打开 HTML；再次双击会停止由该开关启动的 API。
+
+也可以手动安装 Python 依赖：
 
 ```powershell
 python -m pip install -r requirements-agents.txt -r requirements-ml.txt -r requirements-optimization.txt
 ```
 
-双击仓库根目录的 `start-agent-demo.ps1`。脚本会检查或启动本地 API，并打开 HTML 页面。也可以手动在仓库根目录执行：
+再手动启动 API 并打开 HTML：
 
 ```powershell
 python -m uvicorn steelchain.agents.api:app --host 127.0.0.1 --port 8000
