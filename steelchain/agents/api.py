@@ -22,7 +22,9 @@ def ensure_simulated_database(path):
 ensure_simulated_database(DB)
 migrate_and_seed(DB)
 app=FastAPI(title='SteelChain Agent API',version='1.0.0')
-app.add_middleware(CORSMiddleware,allow_origins=['http://localhost:3000','http://127.0.0.1:3000'],allow_credentials=True,allow_methods=['*'],allow_headers=['*'])
+# `null` is the Origin used by a directly opened file:// HTML workbench.
+# Keep the API bound to localhost for local demos; this is not an internet CORS policy.
+app.add_middleware(CORSMiddleware,allow_origins=['http://localhost:3000','http://127.0.0.1:3000','null'],allow_credentials=True,allow_methods=['*'],allow_headers=['*'])
 class TurnRequest(BaseModel):
  message:str=Field(min_length=1,max_length=4000)
  conversation_id:str|None=None

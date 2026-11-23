@@ -31,4 +31,12 @@ class WorkbenchSourceTests(unittest.TestCase):
   charts=(ROOT/'apps/web/components/Charts.tsx').read_text(encoding='utf-8-sig')
   for marker in ('forecasts.forEach','predicted_value','model_version','SIMULATED_MODEL_PREDICTION','forecast_status','SupplyForecastChart','supply-demand-forecasts'):
    self.assertIn(marker,charts)
+ def test_standalone_local_agent_calls_api_and_discloses_simulated_data(self):
+  html=(ROOT/'artifacts/steelchain-agent.html').read_text(encoding='utf-8-sig')
+  api=(ROOT/'steelchain/agents/api.py').read_text(encoding='utf-8-sig')
+  for marker in ('/api/v1/assistant/turns','conversation_id','SIMULATED','data_origin','steel_mill','recycler','individual'):
+   self.assertIn(marker,html)
+  self.assertIn("'null'",api)  # direct file:// browser origin
+  self.assertNotIn('https://',html)
+  self.assertIn('<script>',html); self.assertIn('</script>',html)
 if __name__=='__main__': unittest.main()

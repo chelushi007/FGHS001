@@ -40,6 +40,10 @@ npm run dev
 
 访问 `http://localhost:3000`。`npm run lint` 和 `npm run build` 分别执行 TypeScript 检查与 Next.js 生产构建。工作台会将当前品类挂牌快照和未来系统供需预测分开展示；模型不可用时不显示预测数值。
 
+### 单文件 HTML 智能体
+
+可双击打开 `artifacts/steelchain-agent.html` 使用本地智能体界面。首次启动需安装 Python 依赖，之后运行仓库根目录的 `start-agent-demo.ps1`。HTML 是单文件界面，Agent 计算仍由 FastAPI 后端提供。分享和部署边界见 [本地 HTML 演示说明](docs/local-html-demo.md)。
+
 ## 比赛演示（P7）
 
 ```powershell
