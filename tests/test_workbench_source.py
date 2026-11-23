@@ -39,6 +39,8 @@ class WorkbenchSourceTests(unittest.TestCase):
   self.assertIn("'null'",api)  # direct file:// browser origin
   self.assertNotIn('https://',html)
   self.assertIn('<script>',html); self.assertIn('</script>',html)
+  self.assertIn('forecast.target_date>=currentDate',html)
+  self.assertIn('目标日期已过期，暂不展示预测值',html)
  def test_windows_service_switch_resolves_dependencies_from_project_root(self):
   launcher=(ROOT/'service-switch.ps1').read_text(encoding='utf-8-sig')
   batch=(ROOT/'钢链智脑服务开关.bat').read_text(encoding='utf-8-sig')
